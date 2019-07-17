@@ -13,6 +13,12 @@ services:
       build:
         context: ./db_connector
         dockerfile: Dockerfile
+      ports:
+      - target: 5001
+        published: 5001
+        protocol: tcp
+      depends_on:
+      - mongo
 
 #    prize_generator:
 
@@ -20,6 +26,11 @@ services:
       build:
         context: ./server
         dockerfile: Dockerfile
+      ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+
 
 #    text_generator:
 
@@ -29,10 +40,18 @@ services:
       build:
         context: ./static_website
         dockerfile: Dockerfile
+      ports:
+      - target: 8089
+        published: 8089
+        protocol: tcp
+
 
     nginx:
-      container_name: nginx
-      image: nginx:latest
+      build:
+        context: ./nginx
+        dockerfile: Dockerfile
+#     container_name: nginx
+#     image: nginx:latest
       volumes:
       - type: bind
         source: ./nginx/nginx.conf
