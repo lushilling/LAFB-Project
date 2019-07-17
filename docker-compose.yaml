@@ -1,0 +1,51 @@
+version: "3.3" 
+services: 
+    mongo: 
+      image: mongo:latest 
+      ports: 
+      - target: 27017
+        published: 27017  
+        protocol: tcp 
+      volumes:
+      - ./data:/data
+
+    db_connector:
+      build:
+        context: ./db_connector
+        dockerfile: Dockerfile
+
+#    prize_generator:
+
+    server:
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+
+#    text_generator:
+
+#    number_generator:
+
+    static_website:
+      build:
+        context: ./static_website
+        dockerfile: Dockerfile
+
+    nginx:
+      container_name: nginx
+      image: nginx:latest
+      volumes:
+      - type: bind
+        source: ./nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+      ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      depends_on:
+        - mongo
+        - db_connector
+#        - prize_generator
+        - server
+#        - text_generator
+#        - number_generator
+        - static_website
