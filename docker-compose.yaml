@@ -21,6 +21,9 @@ services:
       - mongo
 
 #    prize_generator:
+#      depends_on:
+#      - mongo
+#      - db_connector
 
     server:
       build:
@@ -30,11 +33,25 @@ services:
       - target: 8080
         published: 8080
         protocol: tcp
-
+      depends_on:
+      - mongo
+      - db_connector
+#      - prize_generator
 
 #    text_generator:
+#      depends_on:
+#      - mongo
+#      - db_connector
+#      - prize_generator
+#      - server
 
 #    number_generator:
+#      depends_on:
+#      - mongo
+#      - db_connector
+#      - prize_generator
+#      - server
+#      - text_generator
 
     static_website:
       build:
@@ -44,7 +61,13 @@ services:
       - target: 8089
         published: 8089
         protocol: tcp
-
+      depends_on:
+      - mongo
+      - db_connector
+#      - prize_generator
+      - server
+#      - text_generator
+#      - number_generator
 
     nginx:
       build:
