@@ -27,15 +27,15 @@ const multi = (method, url, body) => {
 
 }
 
-const userTerm = sessionStorage.getItem("teacherToSearch");
+const userTerm = sessionStorage.getItem("accountPrize");
 
-multi("GET", "/prizegen" + userTerm).then(val => {
+multi("GET", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/getAlllAccounts" + userTerm).then(val => {
 
         let data = JSON.parse(val);
 
         console.log(data);
 
-        document.getElementById('Prize').innerText = data.prize;
+        document.getElementById('prize').innerText = data.prize;
 
     })
     .catch(function(error) { console.log(error.message) });

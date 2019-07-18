@@ -1,5 +1,3 @@
-
-
 const multi = (method, url, body) => {
 
     return new Promise(
@@ -41,7 +39,7 @@ const getAll = () =>{
 
 }
 
-multi("GET", "/getAllAccounts").then(val => {
+multi("GET", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/getAllAccounts").then(val => {
 
     let data = JSON.parse(val);
 
@@ -55,14 +53,18 @@ multi("GET", "/getAllAccounts").then(val => {
 
 
         let lName = document.createElement('td');
-        lname.innerHTML = dancer.lastName;
+        lName.innerHTML = account.lastName;
 
         let accountNumber = document.createElement('td');
-        accountNumber.innerHTML = dancer.accountnumber;
+        accountNumber.innerHTML = account.accountnumber;
+
+        let prize = document.createElement('td');
+        prize.innerHTML = account.prize;
 
         aRow.appendChild(fName);
         aRow.appendChild(lName);
         aRow.appendChild(accountNumber);
+        aRow.appendChild(prize);
        
 
     }
