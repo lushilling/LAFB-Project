@@ -19,9 +19,7 @@ services:
       - mongo
 
     prize_generator:
-      build:
-        context: ./prize_gen_node
-        dockerfile: Dockerfile
+      image: jackflanagan93/prize_generator_small
       ports:
       - target: 9003
         published: 9003
