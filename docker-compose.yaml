@@ -42,7 +42,10 @@ services:
         - prize_generator
 
     server:
-      image: jackflanagan93/server
+#      image: jackflanagan93/server
+      build:
+        context: ./server
+        dockerfile: Dockerfile
       ports:
       - target: 8080
         published: 8080

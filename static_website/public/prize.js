@@ -1,4 +1,3 @@
-    
 const multi = (method, url, body) => {
 
     return new Promise(
@@ -27,5 +26,19 @@ const multi = (method, url, body) => {
 
 
 }
+
+const userTerm = sessionStorage.getItem("teacherToSearch");
+
+multi("GET", "/prizegen" + userTerm).then(val => {
+
+        let data = JSON.parse(val);
+
+        console.log(data);
+
+        document.getElementById('Prize').innerText = data.prize;
+
+    })
+    .catch(function(error) { console.log(error.message) });
+
 
 

@@ -1,13 +1,14 @@
-    
-const prize = () => {
+
+const prizeFunction = () => {
 
     document.location = "prize.html";
 
 }
 
-const accounts = () => {
+
+
+const accountFunction = () => {
 
     document.location = "accounts.html";
 
 }
-

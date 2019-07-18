@@ -40,14 +40,18 @@ public class AccountService implements IAccountService {
 
 		//Text Gen to get the text part of Account Number
 		String generatedAccountText = restTemplate.getForObject(textGeneratorURL, String.class);
+		//String generatedAccountText = "ABC";
 
 		//Num Gen to get the numeric part of Account Number
 		String generatedAccountNum = restTemplate.getForObject(numGeneratorURL, String.class);
+   		//String generatedAccountNum = "123";
 
 		account.setAccountnumber(generatedAccountText + generatedAccountNum);
 		
 		//The Prize Gen is then posted the incomplete account
 		return restTemplate.postForObject(prizeGenURL, account, String.class);
+                //return restTemplate.postForObject(100, account, String.class);
+
 	}
 
 }
