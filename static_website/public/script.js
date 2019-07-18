@@ -30,18 +30,15 @@ const multi = (method, url, body) => {
 
 const prizeFunction = () => {
     const account={
-        fname: document.getElementById("fistName").value,
-        lname: document.getElementById("lastName").value
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value
     }
 
     multi("POST", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/addAccount", JSON.stringify(account)).then(val => {
-        const testContainer = document.getElementById('result');
-        testContainer.innerHTML = JSON.stringify(val);
+        sessionStorage.setItem('accountPrize', event.target.id)
+        location.href = 'prize.html';
     }
     ).catch(function(error) { console.log(error.message) });
-
-    sessionStorage.setItem('accountPrize', event.target.id)
-    location.href = prize.html
 }
 
 
