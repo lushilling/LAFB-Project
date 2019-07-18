@@ -20,10 +20,28 @@ services:
       depends_on:
       - mongo
 
-#    prize_generator:
-#      depends_on:
-#      - mongo
-#      - db_connector
+    prize_generator:
+      image: jackflanagan93/prize_gen_generous
+      ports:
+      - target: 9003
+        published: 9003
+        protocol: tcp
+      depends_on:
+      - mongo
+      - db_connector
+
+    notification_server:
+      build:
+        context: ./notification_server
+        dockerfile: Dockerfile
+      ports:
+      - target: 9000
+        published: 9000
+        protocol: tcp
+      depends_on:
+        - mongo
+        - db_connector
+        - prize_generator
 
     server:
       build:
@@ -36,22 +54,32 @@ services:
       depends_on:
       - mongo
       - db_connector
-#      - prize_generator
+      - prize_generator
 
-#    text_generator:
-#      depends_on:
-#      - mongo
-#      - db_connector
-#      - prize_generator
-#      - server
+    text_generator:
+      image: jackflanagan93/text_gen_low3
+      ports:
+      - target: 9002
+        published: 9002
+        protocol: tcp
+      depends_on:
+      - mongo
+      - db_connector
+      - prize_generator
+      - server
 
-#    number_generator:
-#      depends_on:
-#      - mongo
-#      - db_connector
-#      - prize_generator
-#      - server
-#      - text_generator
+    number_generator:
+      image: jackflanagan93/num_gen_8
+      ports:
+      - target: 9001
+        published: 9001
+        protocol: tcp
+      depends_on:
+      - mongo
+      - db_connector
+      - prize_generator
+      - server
+      - text_generator
 
     static_website:
       build:
@@ -64,17 +92,15 @@ services:
       depends_on:
       - mongo
       - db_connector
-#      - prize_generator
+      - prize_generator
       - server
-#      - text_generator
-#      - number_generator
+      - text_generator
+      - number_generator
 
     nginx:
       build:
         context: ./nginx
         dockerfile: Dockerfile
-#     container_name: nginx
-#     image: nginx:latest
       volumes:
       - type: bind
         source: ./nginx/nginx.conf
@@ -86,8 +112,9 @@ services:
       depends_on:
         - mongo
         - db_connector
-#        - prize_generator
+        - prize_generator
+        - notification_server
         - server
-#        - text_generator
-#        - number_generator
+        - text_generator
+        - number_generator
         - static_website
