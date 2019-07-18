@@ -1,0 +1,13 @@
+    
+apiVersion: v1
+kind: Service
+metadata:
+  name: text_gen_lower3
+spec:
+  selector:
+    app: text_gen_lower3
+  ports: 
+  - protocol: TCP
+    port: 9002
+    targetPort: 9002
+  type: ClusterIP

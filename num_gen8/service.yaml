@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: num_gen_8
+spec:
+  selector:
+    app: num_gen_8
+  ports: 
+  - protocol: TCP
+    port: 9001
+    targetPort: 9001
+  type: ClusterIP

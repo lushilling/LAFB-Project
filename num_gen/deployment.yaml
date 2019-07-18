@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: num_gen_6
+  labels: 
+    app: num_gen_6
+spec:
+  selector:
+    matchLabels:
+      app: num_gen_6
+  template:
+    metadata:
+      labels:
+        app: num_gen_6
+    spec:
+      containers:
+      - name: num_gen_6
+        image: jackflanagan93/num_gen_6:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9001
+
