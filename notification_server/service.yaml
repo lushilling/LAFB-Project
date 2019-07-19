@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: notification_server
+  name: notificationserver
 spec:
   selector:
-    app: notification_server
+    app: notificationserver
   ports: 
   - protocol: TCP
     port: 9000

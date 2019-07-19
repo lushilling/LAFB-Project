@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification_server
+  name: notificationserver
   labels: 
-    app: notification_server
+    app: notificationserver
 spec:
   selector:
     matchLabels:
-      app: notification_server
+      app: notificationserver
   template:
     metadata:
       labels:
-        app: notification_server
+        app: notificationserver
     spec:
       containers:
-      - name: notification_server
+      - name: notificationserver
         image: jackflanagan93/notification_server:latest
         imagePullPolicy: Always
         ports:

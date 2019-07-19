@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: static_website
+  name: staticwebsite
   labels: 
-    app: static_website
+    app: staticwebsite
 spec:
   selector:
     matchLabels:
-      app: static_website
+      app: staticwebsite
   template:
     metadata:
       labels:
-        app: static_website
+        app: staticwebsite
     spec:
       containers:
-      - name: static_website
+      - name: staticwebsite
         image: jackflanagan93/static_website:latest
         imagePullPolicy: Always
         ports:
