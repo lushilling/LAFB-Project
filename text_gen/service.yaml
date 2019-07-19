@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: textgenlower3
+  name: textgenlow3
 spec:
   selector:
-    app: textgenlower3
+    app: textgenlow3
   ports: 
   - protocol: TCP
     port: 9002
