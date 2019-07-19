@@ -16,6 +16,7 @@ spec:
       containers:
       - name: server
         image: jackflanagan93/server:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
