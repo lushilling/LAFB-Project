@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: numgen6
-        image: jackflanagan93/num_gen_8:latest
+        image: jackflanagan93/num_gen_6:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9001
