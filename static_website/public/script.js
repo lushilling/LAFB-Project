@@ -35,8 +35,9 @@ const prizeFunction = () => {
     }
 
     multi("POST", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/addAccount", JSON.stringify(account)).then(val => {
-        sessionStorage.setItem('accountPrize', event.target.id)
-        location.href = 'prize.html';
+        sessionStorage.setItem('prize', event.target.id)
+        console.log(val);
+        //location.href = 'prize.html';
     }
     ).catch(function(error) { console.log(error.message) });
 }
