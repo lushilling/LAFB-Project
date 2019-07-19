@@ -1,4 +1,3 @@
-    
 const multi = (method, url, body) => {
 
     return new Promise(
@@ -28,14 +27,18 @@ const multi = (method, url, body) => {
 
 }
 
-const getAll = () =>{
-    const container = document.getElementById('dancerTable');
+const userTerm = sessionStorage.getItem("prize");
 
-    if (container.rows.length > 1) {
+multi("GET", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/getAllAccounts").then(val => {
 
-        let tableSize = container.rows.length;
-        for (i = tableSize; i > 1; i--) {
-            container.deleteRow(i - 1);
-        }
+        let data = JSON.parse(val);
 
-    }
+        console.log(data);
+
+        document.getElementById('prize').innerText = data.prize;
+
+    })
+    .catch(function(error) { console.log(error.message) });
+
+
+

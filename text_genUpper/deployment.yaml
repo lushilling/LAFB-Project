@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text_gen_upper2
+  labels: 
+    app: text_gen_upper2
+spec:
+  selector:
+    matchLabels:
+      app: text_gen_upper2
+  template:
+    metadata:
+      labels:
+        app: text_gen_upper2
+    spec:
+      containers:
+      - name: text_gen_low3
+        image: jackflanagan93/text_gen_upc2:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9002

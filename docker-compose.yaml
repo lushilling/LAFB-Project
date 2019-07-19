@@ -19,7 +19,7 @@ services:
       - mongo
 
     prize_generator:
-      image: jackflanagan93/prize_gen_generous
+      image: jackflanagan93/prize_generator_large
       ports:
       - target: 9003
         published: 9003
@@ -51,7 +51,7 @@ services:
       - prize_generator
 
     text_generator:
-      image: jackflanagan93/text_gen_low3
+      image: jackflanagan93/text_gen_upc2
       ports:
       - target: 9002
         published: 9002
@@ -63,7 +63,7 @@ services:
       - server
 
     number_generator:
-      image: jackflanagan93/num_gen_8
+      image: jackflanagan93/num_gen_6
       ports:
       - target: 9001
         published: 9001
