@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: text_gen_low3
-        image: jackflanagan93/txt_gen_upc2:latest
+        image: jackflanagan93/text_gen_upc2:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9002
