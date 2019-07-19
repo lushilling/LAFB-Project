@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prize_gen_large
+  name: prizegenlarge
   labels: 
-    app: prize_gen_large
+    app: prizegenlarge
 spec:
   selector:
     matchLabels:
-      app: prize_gen_large
+      app: prizegenlarge
   template:
     metadata:
       labels:
-        app: prize_gen_large
+        app: prizegenlarge
     spec:
       containers:
       - name: client

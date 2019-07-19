@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prize_gen_small
+  name: prizegensmall
 spec:
   selector:
-    app: prize_gen_small
+    app: prizegensmall
   ports: 
   - protocol: TCP
     port: 9003

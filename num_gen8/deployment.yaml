@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: num_gen_8
+  name: numgen8
   labels: 
-    app: num_gen_8
+    app: numgen8
 spec:
   selector:
     matchLabels:
-      app: num_gen_8
+      app: numgen8
   template:
     metadata:
       labels:
-        app: num_gen_8
+        app: numgen8
     spec:
       containers:
-      - name: num_gen_6
+      - name: numgen8
         image: jackflanagan93/num_gen_8:latest
         imagePullPolicy: Always
         ports:
