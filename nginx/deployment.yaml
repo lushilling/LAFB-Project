@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: jackflanagan93/nginx:latest
+        image: nginx:latest
         ports:
         - containerPort: 80
         readinessProbe:
