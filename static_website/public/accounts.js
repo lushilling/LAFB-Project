@@ -39,7 +39,7 @@ const getAll = () =>{
 
 }
 
-multi("GET", "http://lackandjucy.ukwest.cloudapp.azure.com:8080/getAllAccounts").then(val => {
+multi("GET", "http://lackandjucyjenkins.uksouth.cloudapp.azure.com:8080/getAllAccounts").then(val => {
 
     let data = JSON.parse(val);
 
