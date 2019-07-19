@@ -34,7 +34,7 @@ const prizeFunction = () => {
         lastName: document.getElementById("lastName").value
     }
 
-    multi("POST", "http://lackandjucyjenkins.uksouth.cloudapp.azure.com:8080/addAccount", JSON.stringify(account)).then(val => {
+    multi("POST", "http://lackandjucyjenkins.uksouth.cloudapp.azure.com/server/addAccount", JSON.stringify(account)).then(val => {
         sessionStorage.setItem('prize', event.target.id)
         console.log(val);
         //location.href = 'prize.html';

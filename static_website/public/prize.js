@@ -29,7 +29,7 @@ const multi = (method, url, body) => {
 
 const userTerm = sessionStorage.getItem("prize");
 
-multi("GET", "http://lackandjucyjenkins.uksouth.cloudapp.azure.com:8080/getAllAccounts").then(val => {
+multi("GET", "http://lackandjucyjenkins.uksouth.cloudapp.azure.com/server/getAllAccounts").then(val => {
 
         let data = JSON.parse(val);
 
