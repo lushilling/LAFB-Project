@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: client
-        image: jackflanagan93/prize_generator_large:latest
+        image: jackflanagan93/prize_generator_small:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9003
