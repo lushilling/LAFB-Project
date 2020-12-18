@@ -14,7 +14,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
     "mongoose": "^5.5.6",
-    "mquery": "^3.2.1",
+    "mquery": "^3.2.3",
     "validator": "^10.11.0"
   }
 }
